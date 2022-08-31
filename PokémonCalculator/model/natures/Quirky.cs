@@ -1,0 +1,29 @@
+﻿using PokémonCalculator.model.pokémon;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PokémonCalculator.model.natures
+{
+    public class Quirky : Nature
+    {
+        private static Quirky _instance = null;
+        private Quirky() : base(Natures.Quirky)
+        {
+
+        }
+        public static Quirky Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Quirky();
+                }
+                return _instance;
+            }
+        }
+    }
+}
