@@ -20,7 +20,11 @@ namespace PokémonCalculator.persistence
             {
                 if (_instance == null)
                 {
-                    _instance = new ParsePokémon("C:\\Users\\wwwli\\source\\repos\\PokémonCalculator\\PokémonCalculator\\persistence\\Pokemon.csv");
+                    string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    string sFile = System.IO.Path.Combine(sCurrentDirectory, @"../../../persistence/Pokemon.csv");
+                    string sFilePath = Path.GetFullPath(sFile);
+                    _instance = new ParsePokémon(sFilePath);
+                    //_instance = new ParsePokémon("C:\\Users\\wwwli\\source\\repos\\PokémonCalculator\\PokémonCalculator\\persistence\\Pokemon.csv");
                 }
                 return _instance;
             }
