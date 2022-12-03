@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Type = PokémonCalculator.model.types.Type;
 using PokémonCalculator.model.pokémon;
 using PokémonCalculator.model.types;
+using System.Xml.Linq;
 
 namespace PokémonCalculator.persistence
 {
@@ -148,16 +149,25 @@ namespace PokémonCalculator.persistence
 
         public List<Move> GetAllMoves()
         {
-            return _allMoves;
+            return sortMovesByName(_allMoves);
         }
 
         public List<Move> GetDamagingMoves()
         {
-            return _damagingMoves;
+            return sortMovesByName(_damagingMoves);
         }
         public List<Move> GetFixedDamageMoves()
         {
-            return _fixedDamageMoves;
+            return sortMovesByName(_fixedDamageMoves);
+        }
+
+        public List<Move> sortMovesByName(List<Move> moves)
+        {
+            if(moves == null || moves.Count== 0)
+            {
+                throw new ArgumentException("The list of moves is empty!");
+            }
+            return moves.OrderBy(move => move.Name).ToList();
         }
     }
 }
