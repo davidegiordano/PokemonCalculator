@@ -29,13 +29,13 @@ namespace PokémonTests
         [TestMethod]
         public void TestGetMove()
         {
-            Assert.AreEqual((uint)75, parser.GetMove("Rock Slide").Power);
-            Assert.AreEqual((uint)90, parser.GetMove("Rock Slide").Accuracy);
-            Assert.AreEqual((uint)60, parser.GetMove("Aerial Ace").Power);
-            Assert.AreEqual(null, parser.GetMove("Aerial Ace").Accuracy);
-            Assert.AreEqual(null, parser.GetMove("Sonic Boom").Power);
-            Assert.AreEqual((uint)90, parser.GetMove("Sonic Boom").Accuracy);
-            Assert.AreEqual(true, parser.GetMove("Sonic Boom").IsFixedDamage);
+            Assert.AreEqual((uint)75, parser.GetMoveByName("Rock Slide").Power);
+            Assert.AreEqual((uint)90, parser.GetMoveByName("Rock Slide").Accuracy);
+            Assert.AreEqual((uint)60, parser.GetMoveByName("Aerial Ace").Power);
+            Assert.AreEqual(null, parser.GetMoveByName("Aerial Ace").Accuracy);
+            Assert.AreEqual(null, parser.GetMoveByName("Sonic Boom").Power);
+            Assert.AreEqual((uint)90, parser.GetMoveByName("Sonic Boom").Accuracy);
+            Assert.AreEqual(true, parser.GetMoveByName("Sonic Boom").IsFixedDamage);
         }
     }
 }

@@ -24,10 +24,19 @@ namespace PokémonCalculator.persistence
                 if (_instance == null)
                 {
                     string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    string sFile = System.IO.Path.Combine(sCurrentDirectory, @"../../../persistence/Moves.txt");
+                    string sFile = "";
+
+                    // Workaround for tests
+                    if (sCurrentDirectory.Contains("PokémonTests"))
+                    {
+                        sFile = System.IO.Path.Combine(sCurrentDirectory, @"../../../../../PokémonCalculator/persistence/Moves.txt");
+                    } else
+                    {
+                        sFile = System.IO.Path.Combine(sCurrentDirectory, @"../../../persistence/Moves.txt");
+                    }
+
                     string sFilePath = Path.GetFullPath(sFile);
                     _instance = new ParseMoves(sFilePath);
-                    //_instance = new ParseMoves("C:\\Users\\wwwli\\source\\repos\\PokémonCalculator\\PokémonCalculator\\persistence\\Moves.txt");
                 }
                 return _instance;
             }

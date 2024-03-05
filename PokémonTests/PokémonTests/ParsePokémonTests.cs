@@ -30,7 +30,7 @@ namespace PokémonTests
         [TestMethod]
         public void TestGetPokémon1()
         {
-            Pokémon blastoise = parser.GetPokémon("Blastoise");
+            Pokémon blastoise = parser.GetPokémonByName("Blastoise");
             Assert.AreEqual((uint)9, blastoise.ID);
             Assert.AreEqual("Blastoise", blastoise.Name);
             Assert.IsTrue(blastoise.Type.Count == 1 && blastoise.Type.Contains(Water.Instance));
@@ -40,7 +40,7 @@ namespace PokémonTests
         [TestMethod]
         public void TestGetPokémon2()
         {
-            Pokémon zacianCrowned = parser.GetPokémon("Zacian-Crowned Sword");
+            Pokémon zacianCrowned = parser.GetPokémonByName("Zacian-Crowned Sword");
             Assert.AreEqual((uint)888, zacianCrowned.ID);
             Assert.AreEqual("Zacian-Crowned Sword", zacianCrowned.Name);
             Assert.IsTrue(zacianCrowned.Type.Count == 2 && zacianCrowned.Type.Contains(Fairy.Instance) && zacianCrowned.Type.Contains(Steel.Instance));
@@ -52,15 +52,15 @@ namespace PokémonTests
         public void TestGetPokémonsByGen()
         {
             Assert.AreEqual(151, parser.GetPokémonsByGen(1).Count);
-            Assert.IsTrue(parser.GetPokémonsByGen(1).Contains(parser.GetPokémon("Blastoise")));
-            Assert.IsFalse(parser.GetPokémonsByGen(1).Contains(parser.GetPokémon("Zacian-Crowned Sword")));
+            Assert.IsTrue(parser.GetPokémonsByGen(1).Contains(parser.GetPokémonByName("Blastoise")));
+            Assert.IsFalse(parser.GetPokémonsByGen(1).Contains(parser.GetPokémonByName("Zacian-Crowned Sword")));
         }
 
         [TestMethod]
         public void TestGetTop100Pokémons()
         {
             Assert.AreEqual(100, parser.GetTop100Pokémons().Count);
-            Assert.IsTrue(parser.GetTop100Pokémons().Contains(parser.GetPokémon("Zacian-Crowned Sword")));
+            Assert.IsTrue(parser.GetTop100Pokémons().Contains(parser.GetPokémonByName("Zacian-Crowned Sword")));
         }
     }
 }
