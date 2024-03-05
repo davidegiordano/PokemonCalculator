@@ -9,4 +9,5 @@ Features:
 - Natures
 - IVs and EVs
 
-![image](https://github.com/davidegiordano/PokemonCalculator/assets/38279293/33799922-93ef-45f0-aafb-a8719763a61d)
+![image](https://github.com/davidegiordano/PokemonCalculator/assets/38279293/fcd87455-02e2-472c-840f-925f1578ff53)
+
